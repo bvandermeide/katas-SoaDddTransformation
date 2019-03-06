@@ -5,5 +5,8 @@
     public Customer()
     {
     }
+
+    public int CustomerId { get; set; }
+    public bool IsGuest { get; set; }
   }
 }

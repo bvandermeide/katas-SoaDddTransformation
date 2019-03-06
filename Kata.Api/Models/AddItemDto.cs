@@ -5,7 +5,7 @@ namespace Kata.Api.Models
 {
   public class AddItemDto
   {
-    public int ProductId { get; }
+    public int ProductId { get; set; }
     public uint Qty { get; set; }
   }
 }
