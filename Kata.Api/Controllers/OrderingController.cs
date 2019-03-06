@@ -16,7 +16,7 @@ namespace Kata.Api.Controllers
 
     public OrderingController(OrderingDbContext dbContext) => this.orderingDbContext = dbContext;
 
-    // PUT api/ordering [body=itemDto]
+    // PUT api/ordering/orders/{orderId}/item [body=itemDto]
     [HttpPut("orders/{orderId}/item")]
     public ActionResult AddItem(int orderId, [FromBody] AddItemDto item)
     {
@@ -44,7 +44,7 @@ namespace Kata.Api.Controllers
 
     }
 
-    // POST api/ordering/new
+    // POST api/ordering/orders/new
     [HttpPost("orders/new")]
     public ActionResult Create()
     {
@@ -66,7 +66,7 @@ namespace Kata.Api.Controllers
       }
     }
 
-    // POST api/ordering/{orderId}/place
+    // POST api/ordering/orders/{orderId}/place
     [HttpPost("orders/{orderId}/place")]
     public ActionResult PlaceOrder(int orderId)
     {
@@ -87,6 +87,7 @@ namespace Kata.Api.Controllers
       }
     }
 
+    // GET api/ordering/orders
     [HttpGet("orders")]
     public ActionResult GetOrders()
     {
@@ -95,6 +96,7 @@ namespace Kata.Api.Controllers
       return Ok(orders);
     }
 
+    // GET api/ordering/orders/{orderId}
     [HttpGet("orders/{orderId}")]
     public ActionResult GetOrder(int orderId)
     {
@@ -103,6 +105,7 @@ namespace Kata.Api.Controllers
       return Ok(orders);
     }
 
+    // GET api/ordering/version
     [HttpGet("version")]
     public ActionResult Version() => Ok(new { version = "1.0" });
 
